@@ -43,11 +43,10 @@ def Display_data():
     print("- avarage value:",sum(Arrays[0])/len(Arrays[0]))
     
 def Cal_fact(n):
-    if num==0 or num==1:
+    if n==0 or n==1:
         return 1
     else:
-        factorial=num*Cal_fact(num-1)
-   print(f"Factorial of {num} is : {factorial}")
+        return n*Cal_fact(n-1)
      
 def filter_data():
     
@@ -114,6 +113,8 @@ while True:
         Display_data()
     elif choice==3:
         num=int(input("Enter a num:"))
+        factorial=Cal_fact(num)
+        print(f"Factorial of {num} is : {factorial}")
         print(Cal_fact(num))
     elif choice==4:
         filter_data()
