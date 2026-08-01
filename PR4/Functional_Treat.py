@@ -34,11 +34,7 @@ def input_data():
 
 
 def Display_data():
-    global Arrays
-
-    
-   
-    
+  
     print("\nData Summary:")
     print("- Total elements:",len(Arrays[0]))
     print("- Minimum Value:",min(Arrays[0]))
@@ -46,22 +42,13 @@ def Display_data():
     print("- Sum of all Values:",sum(Arrays[0]))
     print("- avarage value:",sum(Arrays[0])/len(Arrays[0]))
     
-    
-
 def Cal_fact(n):
-    
-    #num=int(input("Enter a num:"))
-    if n==0 or n==1:
+    if num==0 or num==1:
         return 1
-    
-    fact = n*Cal_fact(n-1)
-    num=int(input("Enter a num:"))
-    print(f'factorial of {num} is {fact}')
-    return fact
-#num=int(input("Enter a num:"))
-    
-print(f'factorial of {num} is {fact}')
-
+    else:
+        factorial=num*Cal_fact(num-1)
+   print(f"Factorial of {num} is : {factorial}")
+     
 def filter_data():
     
     """filter all data using filter."""
@@ -69,8 +56,9 @@ def filter_data():
     value=int(input("Enter a threshold value to filter out data above this value:"))
 
     numbers=list(filter(lambda x:x >= value,Arrays[0]))
-    print(f"Factorial of {value} is : {numbers}")
+   
     print(filter_data.__doc__)
+    print(numbers)
     return numbers
    
 
@@ -88,22 +76,21 @@ def Sort_data():
         print(sorted(Arrays[0],reverse=True))
 def display_dataset(*args,**kwargs):
 
-    print("Dataset Statistics:")
-
     Minimum=min(args)
     Maximum=max(args)
-    Total=sum(args)
+    Sum=sum(args)
     Average=sum(args)/len(args)
     
     if kwargs.get("show",True):
-         
+
+        print("- Data Statistics:") 
         print("- Minimum value:",Minimum)
         print("- Maximum value:",Maximum)
-        print("- Sum of all values:",Total)
+        print("- Sum of all values:",Sum)
         print("- Average value:",Average)
 
-    return Minimum,Maximum,Total,Average
-
+    return Minimum,Maximum,Sum,Average
+    
 def exit():
     print("Thank you for using the data Analyzer and Transformer")
     print("Program. Goodbye!")
@@ -126,17 +113,19 @@ while True:
     elif choice==2:
         Display_data()
     elif choice==3:
-        #num=int(input("Enter a num for fectorial"))
-        Cal_fact(num)
+        num=int(input("Enter a num:"))
+        print(Cal_fact(num))
     elif choice==4:
         filter_data()
     elif choice==5:
         Sort_data()
     elif choice==6:
-        display_dataset()
+        Minimum,Maximum,Sum,Avarage=display_dataset(*Arrays[0],show=True)
     elif choice==7:
         exit()
         break
+    else:
+        print("Data not Found")
 
         
         
